@@ -1,0 +1,11 @@
+@model Individual
+@{ ViewData["Title"] = "Add individual"; }
+<section class="hero"><h1>Add individual record</h1><p>Enter only information authorized for appointment management.</p></section>
+<div class="panel narrow"><form asp-action="CreateIndividual" method="post" class="form-grid">
+<div class="field full"><label asp-for="FullName">Full name</label><input asp-for="FullName"/><span asp-validation-for="FullName" class="error"></span></div>
+<div class="field"><label asp-for="IndividualNumber">Individual registration number</label><input asp-for="IndividualNumber"/><span asp-validation-for="IndividualNumber" class="error"></span></div>
+<div class="field"><label asp-for="GroupNumber">Group / household number</label><input asp-for="GroupNumber"/><span asp-validation-for="GroupNumber" class="error"></span></div>
+<div class="field"><label asp-for="DateOfBirth">Date of birth</label><input asp-for="DateOfBirth" type="date"/><span asp-validation-for="DateOfBirth" class="error"></span></div>
+<div class="field"><label asp-for="PhoneNumber">Phone number (optional)</label><input asp-for="PhoneNumber" autocomplete="off"/></div>
+<div class="field full"><label asp-for="Settlement">Settlement / registration centre</label><input asp-for="Settlement"/><span asp-validation-for="Settlement" class="error"></span></div>
+<div class="field full"><label><input asp-for="IsActive"/> Active record</label></div><div class="field full"><button class="button" type="submit">Save individual</button> <a asp-action="Index" class="text-link">Cancel</a></div></form></div>

@@ -1,0 +1,10 @@
+@model AppointmentCreateViewModel
+@{ ViewData["Title"] = "Create appointment"; }
+<section class="hero"><h1>Create appointment</h1><p>Schedule an appointment for an individual already registered in this system.</p></section>
+<div class="panel narrow"><form asp-action="CreateAppointment" method="post" class="form-grid">
+<div class="field full"><label asp-for="IndividualId">Individual</label><select asp-for="IndividualId"><option value="">Select a person</option>@foreach (var p in Model.Individuals) { <option value="@p.Id">@p.FullName — @p.IndividualNumber (@p.GroupNumber)</option> }</select><span asp-validation-for="IndividualId" class="error"></span></div>
+<div class="field full"><label asp-for="ServiceName">Service</label><select asp-for="ServiceName"><option>Registration</option><option>Biometric capture and verification</option><option>Identity verification</option><option>Document collection</option><option>Interview</option><option>Other</option></select></div>
+<div class="field"><label asp-for="AppointmentDateTime">Date and time</label><input asp-for="AppointmentDateTime" type="datetime-local"/><span asp-validation-for="AppointmentDateTime" class="error"></span></div>
+<div class="field"><label asp-for="Status">Status</label><select asp-for="Status"><option>Scheduled</option><option>Rescheduled</option></select></div>
+<div class="field full"><label asp-for="Location">Registration centre / location</label><input asp-for="Location" placeholder="e.g. Bidibidi Registration Centre"/><span asp-validation-for="Location" class="error"></span></div>
+<div class="field full"><button class="button" type="submit">Save appointment</button> <a asp-action="Index" class="text-link">Cancel</a></div></form></div>
